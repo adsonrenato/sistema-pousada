@@ -1,0 +1,16 @@
+CREATE TABLE `sistemahotel`.`pousada` (
+  `idpousada` INT NOT NULL AUTO_INCREMENT,
+  `razaoSocial` VARCHAR(45) NOT NULL,
+  `cnpj` VARCHAR(18) NULL,
+  `endereco` VARCHAR(45) NULL,
+  `numero` INT NULL,
+  `telefone` VARCHAR(12) NULL,
+  `fantasia` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idpousada`));
+
+  CREATE TABLE `sistemahotel`.`quarto` (
+  `idQuarto` INT NOT NULL,
+  `valorDiaria` DOUBLE NOT NULL,
+  `tipoCama` VARCHAR(45) NOT NULL,
+  `tipoClima` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idquarto`));
