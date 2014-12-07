@@ -6,7 +6,6 @@
 package controller;
 
 import dao.PousadaDao1;
-import java.util.List;
 import model.Pousada;
 
 /**
