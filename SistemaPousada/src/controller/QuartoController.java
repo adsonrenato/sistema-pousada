@@ -24,9 +24,9 @@ public class QuartoController {
                            String tipoCama, 
                            String tipoClimatizacao ) {
     
-    Quarto quarto = new Quarto( numeroQuarto, 
-                                valorDiaria, 
-                                tipoCama, 
+    Quarto quarto = new Quarto( numeroQuarto,
+                                valorDiaria,
+                                tipoCama,
                                 tipoClimatizacao );
     
     QuartoDao1 quartoDao1 = new QuartoDao1();
