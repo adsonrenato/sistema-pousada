@@ -1,14 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facade;
 
-/**
- *
- * @author qualidade-2
- */
+import controller.FuncionarioController;
+
 public class FuncionarioFacade {
   
+  FuncionarioController funcionarioController;
+  
+  public FuncionarioFacade() {
+    funcionarioController = new FuncionarioController();
+  }
+  
+  public void cadastrarCliente( String nome, String endereco, double salario ) {
+    funcionarioController.cadastrar(nome, endereco, salario);
+  }
+  
+  public void alterarCliente( int id, String nome, String endereco, double salario   ) {
+    funcionarioController.alterar(id, nome, endereco, salario );
+  }
+  
+  public void buscalAll( String nome ) {
+    funcionarioController.buscarAll(nome);
+  }
+  
+  public void buscar( int id ) {
+    funcionarioController.buscar(id);
+  }
+  
+  public void excluir( int id ) {
+    funcionarioController.excluir(id);
+  }
 }
