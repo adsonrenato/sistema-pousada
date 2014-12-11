@@ -6,35 +6,36 @@
 package dao;
 
 import java.util.List;
+import model.Cliente;
 
 /**
  *
  * @author Neto
  */
-public class ClienteDao1 implements InterfaceDao<Object>{
+public class ClienteDao1 implements InterfaceDao<Cliente>{
 
   @Override
-  public boolean salvar(Object bean) {
+  public boolean salvar(Cliente bean) {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   @Override
-  public boolean alterar(Object bean) {
+  public boolean alterar(Cliente bean) {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   @Override
-  public List<Object> buscar(String nome) {
+  public List<Cliente> buscar(String nome) {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   @Override
-  public Object buscar(int id) {
+  public Cliente buscar(int id) {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
   @Override
-  public Object excluir(Object bean) {
+  public Cliente excluir(Cliente bean) {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
   
