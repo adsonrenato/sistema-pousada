@@ -1,42 +1,74 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import dao.FuncionarioDao1;
 import java.util.List;
 import model.Funcionario;
 
-/**
- *
- * @author qualidade-2
- */
 public class FuncionarioController {
   
   public FuncionarioController() {
     
   }
   
-  public Funcionario cadastrar( String nome, String endereco, double salario ) {
+  public String cadastrar( String nome, String endereco, double salario ) {
     
     Funcionario funcionario = new Funcionario( nome, endereco, salario );
     FuncionarioDao1 funcionarioDao1 = new FuncionarioDao1();
     
+    if(nome.equals("")) {
+      return "Nome vazio";
+    }
+    if(endereco.equals("")) {
+      return "Endereco vazio";
+    }
+    if(salario <= 0.00) {
+      return "Salário vazio";
+    }
     if(funcionarioDao1.salvar(funcionario)) {
-      return funcionario;
+      return "Ok";
     }else{
-      return null;
+      return "Erro ao gravar";
     }
   }
   
-  public Funcionario alterar( int id, String nome, String Endereco, double salario ) {
-    return null;
+  public String alterar( int id, String nome, String endereco, double salario ) {
+    
+    Funcionario funcionario = new Funcionario( id, nome, endereco, salario );
+    FuncionarioDao1 funcionarioDao1 = new FuncionarioDao1();
+    
+    if(id <= 0) {
+      return "Id vazio";
+    }
+    if(nome.equals("")) {
+      return "Nome vazio";
+    }
+    if(endereco.equals("")) {
+      return "Endereco vazio";
+    }
+    if(salario <= 0.00) {
+      return "Salário vazio";
+    }
+    if(funcionarioDao1.alterar(funcionario)) {
+      return "Ok";
+    }else{
+      return "Erro ao gravar";
+    }
   }
   
-  public List buscarAll( String nome ) {
-    return null;
+  public String buscarAll( String nome ) {
+    
+    FuncionarioDao1 funcionarioDao = new FuncionarioDao1();
+    List<Funcionario> listaFuncionarios = funcionarioDao.buscar(nome);
+    
+    if(nome.equals("")){
+      return "Nome vazio";
+    }
+    if(!(listaFuncionarios == null)) {
+      return "Ok";
+    }else{
+      return "Erro ao gravar";
+    }
+    
   }
   
   public Funcionario buscar( int id ) {

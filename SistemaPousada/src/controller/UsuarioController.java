@@ -5,7 +5,6 @@
  */
 package controller;
 
-import dao.QuartoDao1;
 import dao.UsuarioDao1;
 import java.util.List;
 import model.Usuario;

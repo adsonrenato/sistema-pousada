@@ -10,31 +10,87 @@ public class ClienteController {
     
   }
   
-  public Cliente cadastrar( String nome, String endereco ) {
+  public String cadastrar( String nome, String endereco ) {
     
     Cliente cliente = new Cliente( nome, endereco );
     ClienteDao1 clienteDao1 = new ClienteDao1();
     
+    if(nome.equals("")){
+      return "Nome vazio";
+    }
+    if(endereco.equals("")){
+      return "Endereco vazio";
+    }
     if(clienteDao1.salvar(cliente)) {
-      return cliente;
+      return "Ok";
     }else{
-      return null;
+      return "Erro ao gravar";
     }
   }
   
-  public Cliente alterar( int id, String nome, String Endereco ) {
-    return null;
+  public String alterar( int id, String nome, String endereco ) {
+    
+    Cliente cliente = new Cliente(nome, endereco);
+    ClienteDao1 clienteDao1 = new ClienteDao1();
+    
+    if(id <= 0) {
+      return "Id vazio";
+    }
+    if(nome.equals("")){
+      return "Nome vazio";
+    }
+    if(endereco.equals("")){
+      return "Endereco vazio";
+    }
+    if(clienteDao1.alterar(cliente)){
+      return "Ok";
+    }else {    
+      return "Erro ao gravar";
+    }
   }
   
-  public List buscarAll( String nome ) {
-    return null;
+  public String buscarAll( String nome ) {
+    
+    ClienteDao1 clienteDao1 = new ClienteDao1();    
+    List<Cliente> listaCliente = clienteDao1.buscar(nome);
+    
+    if(nome.equals("")){
+      return "Nome vazio";
+    }
+    if(!(listaCliente == null)) {
+      return "Ok";
+    }else{
+      return "Erro ao gravar";
+    }
   }
   
-  public Cliente buscar( int id ) {
-    return null;
+  public String buscar( int id ) {
+    
+    ClienteDao1 clienteDao1 = new ClienteDao1();
+    Object cliente = clienteDao1.buscar(id);
+    
+    if(id <= 0) {
+      return "Id vazio";
+    }
+    if(!(cliente == null)){
+      return "Ok";
+    }else{
+      return "Erro ao gravar";
+    }
   }
   
-  public Cliente excluir( int id ) {
-    return null;
+  public String excluir( int id ) {
+    
+    ClienteDao1 clienteDao1 = new ClienteDao1();
+    Cliente cliente = clienteDao1.excluir(clienteDao1.buscar(id));
+    
+    if(id <= 0) {
+      return "Id vazio";
+    }
+    if(!(cliente == null)){
+      return "Ok";
+    }else{
+      return "Erro ao gravar";
+    }
   }
 }
