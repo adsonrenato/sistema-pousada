@@ -10,43 +10,34 @@ public class ClienteController {
     
   }
   
-  public String cadastrar( String nome, String endereco ) {
+  public Cliente cadastrar( String nome, String endereco ) {
     
     Cliente cliente = new Cliente( nome, endereco );
     ClienteDao1 clienteDao1 = new ClienteDao1();
     
-    if(nome.equals("")){
-      return "Nome vazio";
+    if(nome.equals("") || endereco.equals("")){
+      return null;
+    } else {
+      if(clienteDao1.salvar(cliente)) {
+        return cliente;
+      }
     }
-    if(endereco.equals("")){
-      return "Endereco vazio";
-    }
-    if(clienteDao1.salvar(cliente)) {
-      return "Ok";
-    }else{
-      return "Erro ao gravar";
-    }
+    return null;
   }
   
-  public String alterar( int id, String nome, String endereco ) {
+  public Cliente alterar( int id, String nome, String endereco ) {
     
     Cliente cliente = new Cliente(nome, endereco);
     ClienteDao1 clienteDao1 = new ClienteDao1();
     
-    if(id <= 0) {
-      return "Id vazio";
+    if(id <= 0 || nome.equals("") || endereco.equals("")){
+      return null;
+    } else{
+      if(clienteDao1.alterar(cliente)) {
+        return cliente;
+      }
     }
-    if(nome.equals("")){
-      return "Nome vazio";
-    }
-    if(endereco.equals("")){
-      return "Endereco vazio";
-    }
-    if(clienteDao1.alterar(cliente)){
-      return "Ok";
-    }else {    
-      return "Erro ao gravar";
-    }
+    return null;
   }
   
   public String buscarAll( String nome ) {
@@ -64,33 +55,35 @@ public class ClienteController {
     }
   }
   
-  public String buscar( int id ) {
+  public Cliente buscar( int id ) {
     
     ClienteDao1 clienteDao1 = new ClienteDao1();
     Object cliente = clienteDao1.buscar(id);
     
     if(id <= 0) {
-      return "Id vazio";
+      return null;
+    }else {
+      if(!(cliente == null)){
+        return (Cliente) cliente;
+      }
     }
-    if(!(cliente == null)){
-      return "Ok";
-    }else{
-      return "Erro ao gravar";
-    }
+    
+    return null;
   }
   
-  public String excluir( int id ) {
+  public Cliente excluir( int id ) {
     
     ClienteDao1 clienteDao1 = new ClienteDao1();
     Cliente cliente = clienteDao1.excluir(clienteDao1.buscar(id));
     
     if(id <= 0) {
-      return "Id vazio";
+      return null;
+    }else {
+      if(!(cliente == null)){
+        return (Cliente) cliente;
+      }
     }
-    if(!(cliente == null)){
-      return "Ok";
-    }else{
-      return "Erro ao gravar";
-    }
+    
+    return null;
   }
 }
