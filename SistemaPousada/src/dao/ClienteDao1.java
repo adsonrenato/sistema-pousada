@@ -16,12 +16,12 @@ public class ClienteDao1 implements InterfaceDao<Cliente>{
 
   @Override
   public boolean salvar(Cliente bean) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return true;
   }
 
   @Override
   public boolean alterar(Cliente bean) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return true;
   }
 
   @Override
@@ -31,12 +31,18 @@ public class ClienteDao1 implements InterfaceDao<Cliente>{
 
   @Override
   public Cliente buscar(int id) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    Cliente cliente = new Cliente("Teste", "Teste");
+    
+    return cliente;
   }
 
   @Override
   public Cliente excluir(Cliente bean) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    Cliente cliente = new Cliente("Teste", "Teste");
+    
+    return cliente;
   }
   
 }
